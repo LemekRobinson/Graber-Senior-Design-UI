@@ -1,0 +1,16 @@
+# filename UImain.py
+
+<Widgets>:
+    # both these variables can be the same name and this doesn't lead to
+    # an issue with uniqueness as the id is only accessible in kv.
+    txt_inpt: txt_inpt
+    Button:
+        id: f_but
+		pos: root.x, root.top-self.height
+		text: "press button"
+		size_hint: .8,.6
+		color: 0,1,1,1
+		background_color: 1,0,1,.5
+    TextInput:
+        id: txt_inpt
+        text: f_but.state
