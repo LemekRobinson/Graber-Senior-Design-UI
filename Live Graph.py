@@ -13,8 +13,8 @@ def refreshGraphData(i):
     for line in lines:
         if len(line) > 1:
             x, y = line.split(",")
-            xValues.append(x)
-            yValues.append(y)
+            xValues.append(int(x))
+            yValues.append(int(y))
     ax1.clear()
     ax1.plot(xValues, yValues)
 ani = animation.FuncAnimation(fig, refreshGraphData, interval=1000)
