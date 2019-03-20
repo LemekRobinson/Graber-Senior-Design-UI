@@ -3,12 +3,18 @@ import datetime
 import pandas as pd
 import sys,os
 import socket
+from kivy.garden.matplotlib.backend_kivyagg import FigureCanvasKivyAgg
+from kivy.app import App
+from kivy.uix.boxlayout import BoxLayout
+import matplotlib.pyplot as plt
+
 
 class Sensors():
     def __init__(self):
         #start time for log name
-        startTime = str(datetime.datetime.now().strftime('%y-%m-%d_%H-%M-%S'))
-        startDate = str(datetime.datetime.now().strftime('%y-%m-%d_%H-%M'))
+        self.startTime = str(datetime.datetime.now().strftime('%y-%m-%d_%H-%M-%S'))
+        self.startDate = str(datetime.datetime.now().strftime('%y-%m-%d_%H-%M'))
+
     def read(self):
         #define method of data collection
         pass
@@ -26,5 +32,4 @@ class Sensors():
             info.to_csv(savePath, mode='a', header=False, index=False)
         else:
             info.to_csv(savePath, header=True, index=False)
-
 

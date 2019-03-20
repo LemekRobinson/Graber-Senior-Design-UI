@@ -36,55 +36,83 @@
 					size_hint: .50,.50
 					pos_hint: {'center_x': .5, 'center_y': .5}
 
-			
+
 <MainScreen>
     canvas.before:
         Rectangle:
             pos: self.pos
             size: self.size
             source: 'Images/black.jpg'
-    lbl1: label1
-    lbl2: label2
-    lbl3: label3
-	GridLayout:
-		cols: 3
-		rows: 1
-		padding: 80
-        GridLayout:
-            rows: 3
-            cols: 1
-	        Label:
-		        id: label2
-		        text: "Change text"
-                font_size: 50
-	        Label:
-		        id: label1
-		        text: "hello"
-	        Label:
-		        id: label3
-		        text: "hello"
 
-		BoxLayout:
-			orientation: "vertical"
-	
-			Label:
-				height: 20
-				size_hint_y: None
-				text: 'Testing the camera'
-	
-			KivyCamera:
-				id: qrcam
-	
+    StackLayout:
+        padding: 10
+        BoxLayout:
+            id: cambox
+		    orientation: "vertical"
+		    size_hint: .5,.5
+
 			BoxLayout:
-				orientation: "horizontal"
-				height: 20
-				size_hint_y: None
-	
-				Button:
-					id: butt_start
-					size_hint: 0.5,1
-					text: "Connect"
-					on_press: root.dostart()
-					
-		Button:
-			text: 'hello'
+			    size_hint: 1,.8
+			    KivyCamera:
+			        id: qrcam
+			        allow_stretch: True
+			        keep_ratio: True
+
+            BoxLayout:
+                size_hint: 1,.2
+                orientation: "horizontal"
+                id: cambuttonbox
+                Button:
+			        id: connection
+                    size_hint: 0.8,1
+                    text: "Connect"
+                    on_press: root.dostart()
+
+                Button:
+                    id: fullscreen
+                    size_hint: 0.2,1
+                    text: "Fullscreen"
+                    on_press: root.changesize()
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: .40,.5
+            BoxLayout:
+                orientation: "horizontal"
+                id: guage1
+    BoxLayout:
+        size_hint: 1,.5
+        BoxLayout:
+            id: graph
+
+
+
+<Options>
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'Images/black.jpg'
+
+    BoxLayout:
+        size_hint: .5,1
+        orientation: "vertical"
+
+<Graphs>
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'Images/black.jpg'
+
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            id: graph
+        BoxLayout:
+            size_hint: 1,.1
+            orientations: "horizontal"
+            Button:
+                text: 'press me pls'
+                on_press: root.thing()
+

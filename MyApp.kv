@@ -1,0 +1,96 @@
+# File name: MyApp.kv
+	
+<LoginScreen>
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'black.jpg'
+	FloatLayout:
+		GridLayout:
+			cols: 1
+			rows: 3
+			GridLayout:
+				cols: 2
+				rows: 1
+				Label:
+					id: user
+					text: "User Name"
+				TextInput:
+					id: login
+					
+			GridLayout:
+				cols: 2
+				rows: 1
+				Label:
+					text: "Password"
+				TextInput:
+					id: passw
+					multiline: False
+					password: True
+					
+			FloatLayout:
+				Button:
+					text: "Log In"
+					on_press: root.verify_credentials()
+					size_hint: .50,.50
+					pos_hint: {'center_x': .5, 'center_y': .5}
+
+			
+<MainScreen>
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'black.jpg'
+    lbl1: label1
+    lbl2: label2
+    lbl3: label3
+	GridLayout:
+		cols: 3
+		rows: 1
+		padding: 80
+        GridLayout:
+            rows: 3
+            cols: 1
+	        Label:
+		        id: label2
+		        text: "Change text"
+                size: self.size
+	        Label:
+		        id: label1
+		        text: "hello"
+	        Label:
+		        id: label3
+		        text: "hello"
+
+		BoxLayout:
+			orientation: "vertical"
+	
+			Label:
+				height: 20
+				size_hint_y: None
+				text: 'Testing the camera'
+	
+			KivyCamera:
+				id: qrcam
+	
+			BoxLayout:
+				orientation: "horizontal"
+				height: 20
+				size_hint_y: None
+	
+				Button:
+					id: butt_start
+					size_hint: 0.5,1
+					text: "start"
+					on_press: root.dostart()
+	
+				Button:
+					id: butt_exit
+					text: "quit"
+					size_hint: 0.5,1
+					on_press: root.doexit()
+					
+		Button:
+			text: 'hello'
