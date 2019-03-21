@@ -28,6 +28,7 @@ import datetime
 from matplotlib.dates import DateFormatter
 import pandas as pd
 import matplotlib.style as style
+
 style.use('seaborn-poster')
 style.use('ggplot')
 matplotlib.rcParams['font.family'] = "serif"
