@@ -75,11 +75,26 @@
                     on_press: root.changesize()
 
         BoxLayout:
+            padding: 10
             orientation: "vertical"
-            size_hint: .40,.5
+            size_hint: .30,.5
             BoxLayout:
                 orientation: "horizontal"
                 id: guage1
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: .2,.5
+            BoxLayout:
+                padding: 22
+                size_hint: 1,.95
+                BoxLayout:
+                    orientation: 'vertical'
+                    id: temperature
+            BoxLayout:
+                size_hint: 1,.05
+                Label:
+                    id: Templabel
+
     BoxLayout:
         size_hint: 1,.5
         BoxLayout:
@@ -114,5 +129,5 @@
             orientations: "horizontal"
             Button:
                 text: 'press me pls'
-                on_press: root.thing()
+                on_press: root.redrawGraph()
 
